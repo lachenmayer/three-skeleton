@@ -64,11 +64,6 @@ gulp.task('browserify', function() {
         threejs: {
           path: './build/js/lib/threejs/build/three.js',
           exports: 'THREE'
-        },
-        PointerLockControls: {
-          path: './build/js/lib/PointerLockControls.js',
-          exports: 'THREE.PointerLockControls',
-          depends: {threejs: 'THREE'}
         }
       }
     }))
