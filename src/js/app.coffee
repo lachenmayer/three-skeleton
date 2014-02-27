@@ -19,22 +19,23 @@ $ ->
   scene.add camera
 
   camera.position.z = 500
-  #camera.position.y = 200
-
 
   light = new THREE.AmbientLight 0xffffff
   scene.add light
 
-  tick = 0
-  startTime = time = Date.now()
   render = ->
+    ###
+    # Render code goes here
+    ###
+
     renderer.render scene, camera
     window.requestAnimationFrame render
   window.requestAnimationFrame render
 
   container.append(renderer.domElement)
 
-  $(renderer.domElement).click ->
-    console.log 'click'
-    renderer.domElement.webkitRequestPointerLock()
-    document.addEventListener('webkitpointerlockchange', ((e) -> console.log e), false)
+  ###
+  # Uncomment below to hide the mouse cursor when you click. (Chrome only)
+  ###
+  #$(renderer.domElement).click ->
+  #  renderer.domElement.webkitRequestPointerLock()
