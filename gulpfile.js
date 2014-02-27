@@ -24,8 +24,8 @@ gulp.task('css', function() {
 
 });
 
-gulp.task('js', function() {
-  return gulp.src('src/js/*.coffee')
+gulp.task('coffee', function() {
+  return gulp.src('src/js/**/*.coffee')
     .pipe(coffee())
     .pipe(gulp.dest('build/js'));
 });
@@ -49,8 +49,8 @@ gulp.task('express', function() {
   gutil.log('Listening on port: 1337');
 });
 
-gulp.task('jslibs', function() {
-  return gulp.src('src/js/lib/*.js').pipe(gulp.dest('build/js/lib'));
+gulp.task('js', function() {
+  return gulp.src('src/js/**/*.js').pipe(gulp.dest('build/js'));
 });
 
 gulp.task('bower', function() {
@@ -81,7 +81,7 @@ gulp.task('watch', function () {
   gulp.watch('assets/**/*',['assets']);
 });
 
-gulp.task('buildjs', ['js','bower','browserify'])
+gulp.task('buildjs', ['coffee','js','bower','browserify'])
 
 // Default Task
-gulp.task('default', ['jslibs','buildjs','css','templates','assets','express','watch']);
+gulp.task('default', ['buildjs','css','templates','assets','express','watch']);
